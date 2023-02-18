@@ -27,7 +27,7 @@ alarm_counter = 0
 
 
 # TODO: Change to take screenshot
-def alarm():
+def trigger_alarm():
     global alarm
     # 5 consecutive 1 second beeps
     for _ in range(5):
@@ -74,7 +74,7 @@ while True:
     if alarm_counter > 20:
         if not alarm:
             alarm = True
-            threading.Thread(target=alarm).start()
+            threading.Thread(target=trigger_alarm).start()
 
     key_pressed = cv2.waitKey(30)
     if key_pressed == ord("t"):
